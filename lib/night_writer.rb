@@ -1,11 +1,7 @@
-class NightWriter
-    test = File.open(ARGV[0], "r")
-    incoming_text = handle.read
-    capitalized_text = incoming_text.upcase
+handle = File.open(ARGV[0], "r")
 
-    writer = File.open(ARGV[1], "w")
+incoming_text = handle.read
 
-    writer.write(capitalized_text)
-    
-    writer.close
-end
+puts incoming_text
+
+handle.close
