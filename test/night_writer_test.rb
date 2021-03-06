@@ -5,11 +5,10 @@ require './lib/night_writer'
 class NightWriterTest < MiniTest::Test
 
   def setup
-    @object = Object.new
+    @night_writer = NightWriter.new
   end
 
   def test_it_exists
-    assert_instance_of Object, @object
-    assert_equal 'answer', @object.attribute_method
+    assert_instance_of NightWriter, @night_writer
   end
 end
