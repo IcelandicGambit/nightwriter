@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/alphabet'
 
-class RosettaStoneTest < MiniTest::Test
+class AlphabetTest < MiniTest::Test
 
   def setup
     @alphabet = Alphabet.new
