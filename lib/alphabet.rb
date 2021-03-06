@@ -1,4 +1,4 @@
-class RosettaStone
+class Alphabet
     attr_reader :english_braille
 
     def initialize
