@@ -6,9 +6,6 @@ Update the program so that messages of more than 80 characters are split over mu
 
 
 
-
-
-
 # Class NightWriter
 #    Def initialize
 #       # 1 - get the input out of the file
