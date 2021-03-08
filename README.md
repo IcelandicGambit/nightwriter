@@ -1,7 +1,5 @@
 iteration 2
 Update your existing Ruby program to take the entire message contained in your input file and save it to the output file provided by a user. At this point, do not do any work to translate the message to Braille.
->>>Update your program to take an input file with a single letter and create an output file with the Braille equivalent.
-Update your program again so that it can take multiple letters. Compare results with a classmate.
 Update the program so that messages of more than 80 characters are split over multiple lines.
 
 
