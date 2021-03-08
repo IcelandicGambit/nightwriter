@@ -1,5 +1,6 @@
 class Alphabet
-    attr_reader :english_braille
+    attr_reader :english_braille,
+                :braille_english
 
     def initialize
     
@@ -34,5 +35,7 @@ class Alphabet
       "." => ["..", "00", ".0"],
       "," => ["..", "0.", ".."]
       }
+
+      @braille_english = english_braille.invert
     end
 end
