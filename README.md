@@ -1,6 +1,6 @@
 iteration 2
 Update your existing Ruby program to take the entire message contained in your input file and save it to the output file provided by a user. At this point, do not do any work to translate the message to Braille.
-Update the program so that messages of more than 80 characters are split over multiple lines.
+Update the program so that messages of more than 80 characters are split over multiple lines    .
 
 
 
