@@ -13,4 +13,7 @@ class Translator
      puts "Created #{ARGV[1]} containing #{@message.length} characters"
     end
 
+    def limit_to_80_characters
+  
+
 end
