@@ -6,7 +6,7 @@ class NightWriter
   def initialize
     @original_message =  File.open(ARGV[0]).read
     @translated_message = []
-         @english_braille = {
+    @english_braille = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
@@ -40,21 +40,14 @@ class NightWriter
   end
 
 
-  def print_message
-    file =  File.open(ARGV[0]).read
-    puts file
-    translated_text = file.english_braille
-    writer = File.open(ARGV[1], "w")
-    writer.write(capitalized_text)
-    puts "Created #{ARGV[1]} containing #{file.length} characters"
-  end
-
   def read_message
+     puts @original_message
     @original_message.split("").each do |letter|
      @translated_message << @english_braille[letter]
     end
      writer = File.open(ARGV[1], "w")
      writer.write @translated_message
+     puts "Created #{ARGV[1]} containing #{@original_message.length} characters"
   end
 end
 NightWriter.new.read_message

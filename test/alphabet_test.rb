@@ -16,5 +16,6 @@ class AlphabetTest < MiniTest::Test
     
     assert_equal ["0.", "..", ".."], @alphabet.english_braille["a"]
     assert_equal [".0", "0.", "0."], @alphabet.english_braille["s"]
+    assert_equal "f", @alphabet.braille_english[["00", "0.", ".."]]
   end
 end
