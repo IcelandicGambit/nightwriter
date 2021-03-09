@@ -3,7 +3,7 @@ require_relative 'alphabet'
 class NightWriter
   attr_reader :input_message,
               :translated_message,
-              :alphabet
+              :alphabet,
               :output_message
 
   def initialize

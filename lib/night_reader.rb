@@ -2,9 +2,9 @@ require_relative 'alphabet'
 
 class NightReader
   attr_reader :input_message,
-              :translated_message,
-              :alphabet
-              :output_message
+              :braille_message,
+              :alphabet,
+              :english_message
 
   def initialize
     @input_message = File.open(ARGV[0])
