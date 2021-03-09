@@ -1,10 +1,9 @@
 class Alphabet
-    attr_reader :english_braille,
-                :braille_english
+  attr_reader :english_braille,
+              :braille_english
 
-    def initialize
-    
-      @english_braille = {
+  def initialize
+    @english_braille = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
@@ -34,8 +33,13 @@ class Alphabet
       " " => ["..", "..", ".."],
       "." => ["..", "00", ".0"],
       "," => ["..", "0.", ".."]
-      }
+    }
 
-      @braille_english = english_braille.invert
+    @braille_english_temp = english_braille.invert
+    @braille_english = {}
+    @braille_english_temp.each do |k, v|
+      braille = k.join("")              # ["0.", "..", "00"] -> "0...00"
+      @braille_english[braille] = v     # { "0...00" -> "a" }  
     end
+  end
 end
