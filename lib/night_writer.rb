@@ -54,4 +54,5 @@ class NightWriter
     puts "Created #{ARGV[1]} containing #{chars_written / 2} characters"
   end
 end
+
 NightWriter.new.read_message
