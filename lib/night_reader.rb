@@ -1,16 +1,24 @@
 require_relative 'alphabet'
 
 class NightReader
-  attr_reader :input_message,
+  attr_accessor :input_message,
               :braille_message,
               :alphabet,
-              :english_message
+              :english_message,
+              :writer
 
   def initialize
-    @input_message = File.open(ARGV[0])
     @braille_message = []
     @english_message = []
     @alphabet = Alphabet.new
+    if ARGV[0].nil?
+      @input_message = []
+      @writer = nil 
+    else
+      @input_message = File.open(ARGV[0])
+      @writer = File.open(ARGV[1], "w")
+      read_message 
+    end
   end
   
   def read_message
@@ -31,11 +39,12 @@ class NightReader
   end
 
   def write_to_file
-    writer = File.open(ARGV[1], "w")
     @english_message = @english_message.compact
-    writer.write @english_message.join
+    @writer.write @english_message.join
     puts "Created #{ARGV[1]} containing #{@english_message.length} characters"
   end
 end
 
-NightReader.new.read_message
+unless ARGV[0].nil?
+  NightReader.new
+end

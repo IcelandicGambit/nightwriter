@@ -1,19 +1,27 @@
 require_relative 'alphabet'
 
 class NightWriter
-  attr_reader :input_message,
+  attr_accessor :input_message,
               :translated_message,
               :alphabet,
-              :output_message
+              :output_message,
+              :writer
 
   def initialize
-    @input_message = File.open(ARGV[0])
     @translated_message = []
     @output_message = []
     @alphabet = Alphabet.new
     @line_one = []
     @line_two = []
     @line_three = []
+    if ARGV[0].nil?
+      @input_message = []
+      @writer = nil 
+    else
+      @input_message = File.open(ARGV[0])
+      @writer = File.open(ARGV[1], "w")
+      read_message 
+    end
   end
 
   def read_message
@@ -42,17 +50,18 @@ class NightWriter
   end
 
   def write_to_file
-    writer = File.open(ARGV[1], "w")
     chars_written = 0
     until @line_one.length == 0
       temp_chars_written = @line_one.slice(0..79).length
-      writer.write @line_one.slice!(0..79) + "\n"
-      writer.write @line_two.slice!(0..79) + "\n"
-      writer.write @line_three.slice!(0..79) + "\n"
+      @writer.write @line_one.slice!(0..79) + "\n"
+      @writer.write @line_two.slice!(0..79) + "\n"
+      @writer.write @line_three.slice!(0..79) + "\n"
       chars_written += temp_chars_written
     end
     puts "Created #{ARGV[1]} containing #{chars_written / 2} characters"
   end
 end
 
-NightWriter.new.read_message
+unless ARGV[0].nil?
+  NightWriter.new
+end
